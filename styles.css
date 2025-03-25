@@ -1,0 +1,356 @@
+/* Базовые стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+/* Включаем выделение текста для всех основных элементов */
+body, p, h1, h2, h3, h4, h5, h6, span, div {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+}
+
+.header {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 350px;
+    background-color: #f5f5f5;
+    z-index: 10;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Отступ между Miawsome и About us */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    font-size: 24px;
+    color: yellow;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    margin-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 55px; /* Ваш изменённый gap между пунктами меню */
+    margin-left: 0; /* Без дополнительного отступа слева */
+}
+
+nav ul li {
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+}
+
+.contact-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Стили секции Hero */
+.hero-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.left-content {
+    width: 50%;
+    position: relative;
+    z-index: 10;
+    padding-left: 20px;
+    pointer-events: auto !important;
+}
+
+.left-content h1 {
+    font-size: 60px;
+    font-weight: 700;
+    color: black;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 10;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+}
+
+.left-content p {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 40px;
+    max-width: 85%;
+    line-height: 1.4;
+    position: relative;
+    z-index: 10;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+}
+
+/* Кнопки */
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.book-appointment {
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: troops;
+    transition: background-color 0.3s ease;
+}
+
+.book-appointment:hover {
+    background-color: #e0a800;
+}
+
+.learn-more {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.learn-more i {
+    margin-left: 5px;
+}
+
+/* Контейнер услуг */
+.services-container {
+    position: relative;
+    margin: 20px 0;
+}
+
+.services-section {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service .icon,
+.service img.grooming-icon,
+.service img.healthcare-icon,
+.service img.daycare-icon,
+.service img.training-icon {
+    width: 40px; /* Оставляем размер */
+    height: 40px;
+    margin-bottom: 8px;
+    object-fit: contain; /* Убеждаемся, что иконки не искажаются */
+}
+
+.service span {
+    font-size: 14px;
+    color: black;
+    text-align: center;
+}
+
+/* Стрелки */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #add8e6; /* Голубой фон */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 3;
+}
+
+.arrow i {
+    color: white; /* Белый цвет стрелочек */
+}
+
+.arrow-left {
+    left: -15px;
+}
+
+.arrow-right {
+    right: 120px; /* Ваше рабочее значение */
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.2);
+}
+
+
+/* Правая часть */
+.right-content {
+    width: 50%;
+}
+
+.video-button {
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.play-circle {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffc107;
+}
+
+.video-button p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: black;
+}
+
+/* Декоративные элементы */
+.blue-circle {
+    position: absolute;
+    background-color: #add8e6;
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.blue-circle.one { width: 650px; height: 200px; top: 5%; left: 10%; }
+.blue-circle.two { width: 30px; height: 30px; top: 70%; left: 25%; }
+.blue-circle.three { width: 20px; height: 20px; top: 65%; left: 30%; }
+.blue-circle.four { width: 250px; height: 650px; top: 15%; left: 58%; } /* Новое облачко */
+.blue-circle.five { width: 350px; height: 250px; top: 65%; left: 35%; }
+
+.cat-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-image: url('https://zefirka.club/uploads/posts/2022-11/1667555276_10-zefirka-club-p-kotyata-na-prozrachnom-fone-11.png');
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.cloud {
+    position: fixed;
+    bottom: 0;
+    right: 1;
+    width: 145%;
+    height: 120%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.cloud-path {
+    fill: hsl(30, 100%, 40%);
+    stroke-width: 27;
+    stroke: hsl(30, 100%, 40%);
+}
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .left-content, .right-content {
+        width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 40px;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+
+    .contact-button {
+        margin-top: 10px;
+        align-self: flex-start;
+    }
+
+    .service {
+        width: 80px;
+        height: 80px;
+    }
+}
