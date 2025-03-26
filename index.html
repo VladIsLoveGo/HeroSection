@@ -18,7 +18,9 @@
                 </div>
                 <span>Miawsome</span>
             </div>
-            <nav>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <nav class="menu">
+                <button class="close-button">×</button>
                 <ul>
                     <li>About us</li>
                     <li>Services</li>
@@ -66,7 +68,32 @@
                     <div class="arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
                 </div>
             </div>
-            <div class="right-content"></div>
+            <div class="right-content">
+                <div class="cat-container">
+                    <div class="cat-background"></div>
+                    <div class="video-button">
+                        <svg width="120" height="120" viewBox="0 0 300 300" class="circular-text">
+                            <defs>
+                                <path id="topArc" d="M 50,150 A 100,100 0 0,1 250,150" fill="none"/>
+                                <path id="bottomArc" d="M 250,150 A 100,100 0 0,1 50,150" fill="none"/>
+                            </defs>
+                            <text font-family="Poppins, sans-serif" font-weight="700" fill="black" text-anchor="middle" letter-spacing="3">
+                                <textPath href="#topArc" startOffset="50%">
+                                    W A T C H  O U R  V I D E O .
+                                </textPath>
+                            </text>
+                            <text font-family="Poppins, sans-serif" font-weight="700" fill="black" text-anchor="middle" letter-spacing="3">
+                                <textPath href="#bottomArc" startOffset="50%">
+                                    W A T C H  O U R  V I D E O .
+                                </textPath>
+                            </text>
+                        </svg>
+                        <div class="play-circle">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="blue-circle one"></div>
         <div class="blue-circle two"></div>
@@ -74,31 +101,6 @@
         <div class="blue-circle four"></div>
         <div class="blue-circle five"></div>
     </section>
-
-    <div class="cat-container">
-        <div class="cat-background"></div>
-        <div class="video-button">
-            <svg width="120" height="120" viewBox="0 0 300 300" class="circular-text">
-                <defs>
-                    <path id="topArc" d="M 50,150 A 100,100 0 0,1 250,150" fill="none"/>
-                    <path id="bottomArc" d="M 250,150 A 100,100 0 0,1 50,150" fill="none"/>
-                </defs>
-                <text font-family="Poppins, sans-serif" font-weight="700" fill="black" text-anchor="middle" letter-spacing="3">
-                    <textPath href="#topArc" startOffset="50%">
-                        W A T C H  O U R  V I D E O .
-                    </textPath>
-                </text>
-                <text font-family="Poppins, sans-serif" font-weight="700" fill="black" text-anchor="middle" letter-spacing="3">
-                    <textPath href="#bottomArc" startOffset="50%">
-                        W A T C H  O U R  V I D E O .
-                    </textPath>
-                </text>
-            </svg>
-            <div class="play-circle">
-                <i class="fas fa-play"></i>
-            </div>
-        </div>
-    </div>
 
     <div class="cloud-container">
         <svg class="cloud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">

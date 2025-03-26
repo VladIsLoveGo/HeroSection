@@ -7,7 +7,6 @@
   padding: 0;
 }
 
-/* Глобальные настройки для body */
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
@@ -17,7 +16,6 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Разрешаем выделение текста для основных элементов */
 body, p, h1, h2, h3, h4, h5, h6, span, div {
   user-select: text !important;
   -webkit-user-select: text !important;
@@ -42,7 +40,7 @@ body, p, h1, h2, h3, h4, h5, h6, span, div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 350px;
+  padding: 20px 40px;
   background-color: #f5f5f5;
   z-index: 10;
   opacity: 0;
@@ -85,21 +83,46 @@ body, p, h1, h2, h3, h4, h5, h6, span, div {
 }
 
 /* Навигация */
-nav ul {
+.menu {
+  transition: all 0.3s ease;
+}
+
+.menu ul {
   list-style: none;
   display: flex;
   gap: 55px;
 }
 
-nav ul li {
+.menu ul li {
   font-size: 16px;
   color: black;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
-nav ul li:hover {
+.menu ul li:hover {
   color: #ffc107;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+}
+
+.close-button {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
 }
 
 /* Кнопки пользователя и контакта */
@@ -164,7 +187,6 @@ nav ul li:hover {
   z-index: 0;
 }
 
-/* Контейнер контента в Hero */
 .hero-content {
   display: flex;
   justify-content: space-between;
@@ -175,7 +197,6 @@ nav ul li:hover {
   position: relative;
 }
 
-/* Левая часть контента */
 .left-content {
   width: 50%;
   padding-left: 20px;
@@ -189,8 +210,6 @@ nav ul li:hover {
   color: black;
   line-height: 1.1;
   margin-bottom: 25px;
-  position: relative;
-  z-index: 10;
   opacity: 0;
   animation: fadeIn 1s ease forwards 0.4s;
 }
@@ -201,13 +220,10 @@ nav ul li:hover {
   margin-bottom: 40px;
   max-width: 85%;
   line-height: 1.4;
-  position: relative;
-  z-index: 10;
   opacity: 0;
   animation: fadeIn 1s ease forwards 0.6s;
 }
 
-/* Блок кнопок */
 .buttons {
   display: flex;
   align-items: center;
@@ -239,10 +255,11 @@ nav ul li:hover {
 }
 
 .learn-more {
-  font-size: 16px;
+  font-size: 18px;
   color: black;
   text-decoration: none;
   display: inline-flex;
+  font-weight: 600;
   align-items: center;
   white-space: nowrap;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -265,6 +282,7 @@ nav ul li:hover {
 .services-container {
   position: relative;
   margin: 20px 0;
+  width: 445px; /* Устанавливаем ширину для приближения стрелки */
   opacity: 0;
   animation: fadeIn 1s ease forwards 1s;
 }
@@ -339,7 +357,7 @@ nav ul li:hover {
 }
 
 .arrow-left { left: -15px; }
-.arrow-right { right: 120px; }
+.arrow-right { right: -15px; }
 
 .arrow:hover {
   transform: translateY(-50%) scale(1.2);
@@ -414,7 +432,6 @@ nav ul li:hover {
   box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
 }
 
-/* Круг для анимации видео */
 .circular-text {
   position: absolute;
   width: 120px;
@@ -426,7 +443,6 @@ nav ul li:hover {
   font-size: 19px;
 }
 
-/* Кнопка проигрывания */
 .play-circle {
   width: 60px;
   height: 60px;
@@ -456,6 +472,7 @@ nav ul li:hover {
   z-index: 5;
   opacity: 0;
   animation: fadeIn 1s ease forwards 1.8s;
+  z-index: 10;
 }
 
 .social-button {
@@ -485,12 +502,11 @@ nav ul li:hover {
   color: #000;
 }
 
-/* Специфичные hover эффекты для соцсетей */
 .social-button.youtube:hover i { color: #ff0000; }
 .social-button.x:hover i { color: #000; }
 .social-button.facebook:hover i { color: #3b5998; }
 
-/* Голубой круг с анимацией прозрачности */
+/* Голубые круги */
 .blue-circle {
   position: absolute;
   background-color: #add8e6;
@@ -507,13 +523,17 @@ nav ul li:hover {
 .blue-circle.four { width: 250px; height: 650px; top: 15%; left: 58%; }
 .blue-circle.five { width: 350px; height: 250px; top: 65%; left: 35%; }
 
-/* Облака */
 .cloud {
   position: fixed;
   bottom: 0;
-  right: 1;
-  width: 145%;
-  height: 120%;
+  right: 0;
+  width: 65vw; /* Ширина зависит от ширины окна */
+  height: 65vw; /* Высота пропорциональна ширине */
+  max-width: 1050px; /* Максимальная ширина, чтобы не становилось слишком большим */
+  max-height: 1050px; /* Максимальная высота */
+  min-width: 200px; /* Минимальная ширина, чтобы не становилось слишком маленьким */
+  min-height: 200px; /* Минимальная высота */
+  transform-origin: bottom right; /* Масштабирование от правого нижнего угла */
   z-index: 3;
   pointer-events: none;
 }
@@ -524,27 +544,145 @@ nav ul li:hover {
   stroke: hsl(30, 100%, 40%);
 }
 
-/* Медиа-запросы для адаптивности */
+/* Медиа-запросы */
 @media (max-width: 768px) {
-  .hero-content { flex-direction: column; }
-  .left-content, .right-content { width: 100%; }
+  /* Шапка */
   .header {
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .services-container {
+    margin-bottom: 10px;
+    width: 100%; /* Устанавливаем ширину на 100% */
+  }
+  .header-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #f5f5f5;
+    z-index: 100;
+    padding: 60px 20px 20px;
+    transition: left 0.3s ease;
+  }
+  .menu.open {
+    left: 0;
+  }
+  .menu ul {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 40px;
+    gap: 20px;
+    text-align: center;
   }
-  .header-right { margin-top: 10px; align-self: flex-start; }
-  .service { width: 80px; height: 80px; }
+  .close-button {
+    display: block;
+  }
+  .header-right {
+    display: none; /* Скрываем кнопки на мобильных */
+  }
+
+  /* Hero Section */
+  .hero-content {
+    flex-direction: column;
+  }
+  .left-content, .right-content {
+    width: 100%;
+  }
+  .left-content h1 {
+    font-size: 36px;
+  }
+  .left-content p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .book-appointment {
+    width: 100%;
+  }
+  .learn-more {
+    text-align: center;
+    width: 100%;
+  }
+  .services-section {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 30px; /* Добавляем отступы для стрелок */
+    box-sizing: border-box;
+  }
+  .service {
+    display: inline-flex;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+  }
+  .service:hover {
+    background-color: #fff5e6;
+  }
+
+  /* Стрелки на мобильной версии */
+  .arrow {
+    display: flex; /* Показываем стрелки */
+    width: 24px; /* Уменьшаем размер стрелок */
+    height: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .arrow i {
+    font-size: 12px; /* Уменьшаем иконку стрелки */
+  }
+  .arrow-left {
+    left: 5px; /* Уменьшаем отступ, чтобы не выходить за экран */
+  }
+  .arrow-right {
+    right: 5px; /* Уменьшаем отступ, чтобы не выходить за экран */
+  }
+
+  /* Котик */
+  .cat-container {
+    display: none; /* Скрываем котика на мобильных */
+  }
+
+  /* Видео кнопка */
   .video-button {
-    top: 60%;
-    right: 50%;
-    transform: translateX(50%);
+    top: auto;
+    bottom: 20px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
+
+  /* Социальные кнопки */
   .social-buttons {
-    bottom: 40px;
-    right: 40px;
+    bottom: 20px;
+    right: 20px;
     gap: 10px;
   }
-  .social-button { width: 40px; height: 40px; }
-  .social-button i { font-size: 16px; }
+  .social-button {
+    width: 40px;
+    height: 40px;
+  }
+  .social-button i {
+    font-size: 16px;
+  }
+
+  /* Голубые круги */
+  .blue-circle {
+    display: none;
+  }
+
+  /* Облако */
+  .cloud {
+    display: none; /* Скрываем облако на мобильных */
+  }
 }
