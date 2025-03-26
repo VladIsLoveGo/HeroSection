@@ -1,197 +1,303 @@
-/* Базовые стили */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Общие сбросы и базовые настройки */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* Глобальные настройки для body */
 body {
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
 }
 
-/* Включаем выделение текста для всех основных элементов */
+/* Разрешаем выделение текста для основных элементов */
 body, p, h1, h2, h3, h4, h5, h6, span, div {
-    user-select: text !important;
-    -webkit-user-select: text !important;
-    -moz-user-select: text !important;
-    -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
 }
 
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInBlueCircle {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 0.2; transform: translateY(0); }
+}
+
+/* Шапка сайта */
 .header {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 350px;
-    background-color: #f5f5f5;
-    z-index: 10;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 350px;
+  background-color: #f5f5f5;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.2s;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Отступ между Miawsome и About us */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.logo i {
-    font-size: 24px;
-    color: yellow;
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-circle i {
+  font-size: 20px;
+  color: #ffc107;
 }
 
 .logo span {
-    font-size: 24px;
-    font-weight: 700;
-    color: black;
-    margin-left: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: black;
+  margin-left: 10px;
 }
 
+/* Навигация */
 nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-    gap: 55px; /* Ваш изменённый gap между пунктами меню */
-    margin-left: 0; /* Без дополнительного отступа слева */
+  list-style: none;
+  display: flex;
+  gap: 55px;
 }
 
 nav ul li {
-    font-size: 16px;
-    color: black;
-    cursor: pointer;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+nav ul li:hover {
+  color: #ffc107;
+}
+
+/* Кнопки пользователя и контакта */
+.user-button,
+.contact-button {
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.user-button {
+  background-color: #f0f0f0;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-button:hover {
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+  transform: scale(1.1);
+}
+
+.user-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+.user-button i {
+  font-size: 16px;
+  color: black;
 }
 
 .contact-button {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: black;
-    border-radius: 25px;
-    cursor: pointer;
+  background-color: #f0f0f0;
+  border: 2px solid #000;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 25px;
 }
 
-/* Стили секции Hero */
+.contact-button:hover {
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+  transform: scale(1.05);
+}
+
+.contact-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+/* Основной блок Hero Section */
 .hero-section {
-    flex: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0 40px;
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 0;
 }
 
+/* Контейнер контента в Hero */
 .hero-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 6;
+  position: relative;
 }
 
+/* Левая часть контента */
 .left-content {
-    width: 50%;
-    position: relative;
-    z-index: 10;
-    padding-left: 20px;
-    pointer-events: auto !important;
+  width: 50%;
+  padding-left: 20px;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .left-content h1 {
-    font-size: 60px;
-    font-weight: 700;
-    color: black;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    position: relative;
-    z-index: 10;
-    user-select: text !important;
-    -webkit-user-select: text !important;
-    -moz-user-select: text !important;
-    -ms-user-select: text !important;
+  font-size: 70px;
+  font-weight: 700;
+  color: black;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.4s;
 }
 
 .left-content p {
-    font-size: 20px;
-    color: black;
-    margin-bottom: 40px;
-    max-width: 85%;
-    line-height: 1.4;
-    position: relative;
-    z-index: 10;
-    user-select: text !important;
-    -webkit-user-select: text !important;
-    -moz-user-select: text !important;
-    -ms-user-select: text !important;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 40px;
+  max-width: 85%;
+  line-height: 1.4;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.6s;
 }
 
-/* Кнопки */
+/* Блок кнопок */
 .buttons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.8s;
 }
 
 .book-appointment {
-    background-color: #ffc107;
-    color: black;
-    border: none;
-    border-radius: 50px;
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: troops;
-    transition: background-color 0.3s ease;
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .book-appointment:hover {
-    background-color: #e0a800;
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+.book-appointment:active {
+  transform: scale(0.98);
 }
 
 .learn-more {
-    font-size: 16px;
-    color: black;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.learn-more:hover {
+  color: #ffc107;
+  transform: translateX(5px);
+}
+
+.learn-more:active {
+  transform: translateX(2px);
 }
 
 .learn-more i {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
-/* Контейнер услуг */
+/* Секция услуг */
 .services-container {
-    position: relative;
-    margin: 20px 0;
+  position: relative;
+  margin: 20px 0;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1s;
 }
 
 .services-section {
-    display: flex;
-    justify-content: flex-start;
-    gap: 15px;
-    overflow: hidden;
+  display: flex;
+  gap: 15px;
+  overflow: hidden;
 }
 
 .service {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.service:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background-color: #fff5e6;
+}
+
+.service:active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .service .icon,
@@ -199,158 +305,246 @@ nav ul li {
 .service img.healthcare-icon,
 .service img.daycare-icon,
 .service img.training-icon {
-    width: 40px; /* Оставляем размер */
-    height: 40px;
-    margin-bottom: 8px;
-    object-fit: contain; /* Убеждаемся, что иконки не искажаются */
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  object-fit: contain;
 }
 
 .service span {
-    font-size: 14px;
-    color: black;
-    text-align: center;
+  font-size: 14px;
+  color: black;
+  text-align: center;
 }
 
-/* Стрелки */
+/* Стрелки навигации для секции услуг */
 .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: #add8e6; /* Голубой фон */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 3;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #add8e6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 3;
 }
 
 .arrow i {
-    color: white; /* Белый цвет стрелочек */
+  color: white;
 }
 
-.arrow-left {
-    left: -15px;
-}
-
-.arrow-right {
-    right: 120px; /* Ваше рабочее значение */
-}
+.arrow-left { left: -15px; }
+.arrow-right { right: 120px; }
 
 .arrow:hover {
-    transform: translateY(-50%) scale(1.2);
+  transform: translateY(-50%) scale(1.2);
 }
 
+.arrow:active {
+  transform: translateY(-50%) scale(1.1);
+}
 
-/* Правая часть */
+/* Правая часть контента */
 .right-content {
-    width: 50%;
+  width: 50%;
+  position: relative;
+  z-index: 15;
 }
 
+/* Контейнер с котом */
+.cat-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.4s;
+}
+
+.cat-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://zefirka.club/uploads/posts/2022-11/thumbs/1667555324_51-zefirka-club-p-kotyata-na-prozrachnom-fone-58.png');
+  background-size: contain;
+  background-position: center right;
+  background-repeat: no-repeat;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Видео кнопка */
 .video-button {
-    position: absolute;
-    top: 40%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background-color: #ffc107;
+  border: 2px solid #000;
+  border-radius: 50%;
+  z-index: 20;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.6s;
 }
 
+.video-button:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.8);
+}
+
+.video-button:active {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* Круг для анимации видео */
+.circular-text {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  z-index: 21;
+}
+
+.circular-text text {
+  font-size: 19px;
+}
+
+/* Кнопка проигрывания */
 .play-circle {
-    width: 60px;
-    height: 60px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #ffc107;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #000;
+  z-index: 22;
 }
 
-.video-button p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: black;
+.play-circle i {
+  color: #000;
+  font-size: 20px;
+  padding-left: 3px;
 }
 
-/* Декоративные элементы */
+/* Социальные кнопки */
+.social-buttons {
+  position: absolute;
+  bottom: 100px;
+  right: 150px;
+  display: flex;
+  gap: 15px;
+  z-index: 5;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.8s;
+}
+
+.social-button {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.social-button:hover {
+  transform: scale(1.1);
+}
+
+.social-button:active {
+  transform: scale(1.05);
+}
+
+.social-button i {
+  font-size: 20px;
+  color: #000;
+}
+
+/* Специфичные hover эффекты для соцсетей */
+.social-button.youtube:hover i { color: #ff0000; }
+.social-button.x:hover i { color: #000; }
+.social-button.facebook:hover i { color: #3b5998; }
+
+/* Голубой круг с анимацией прозрачности */
 .blue-circle {
-    position: absolute;
-    background-color: #add8e6;
-    border-radius: 50%;
-    opacity: 0.2;
-    z-index: 1;
-    pointer-events: none;
+  position: absolute;
+  background-color: #add8e6;
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+  animation: fadeInBlueCircle 1s ease forwards 2s;
 }
 
 .blue-circle.one { width: 650px; height: 200px; top: 5%; left: 10%; }
 .blue-circle.two { width: 30px; height: 30px; top: 70%; left: 25%; }
 .blue-circle.three { width: 20px; height: 20px; top: 65%; left: 30%; }
-.blue-circle.four { width: 250px; height: 650px; top: 15%; left: 58%; } /* Новое облачко */
+.blue-circle.four { width: 250px; height: 650px; top: 15%; left: 58%; }
 .blue-circle.five { width: 350px; height: 250px; top: 65%; left: 35%; }
 
-.cat-background {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100vh;
-    background-image: url('https://zefirka.club/uploads/posts/2022-11/1667555276_10-zefirka-club-p-kotyata-na-prozrachnom-fone-11.png');
-    background-size: contain;
-    background-position: center right;
-    background-repeat: no-repeat;
-    z-index: 2;
-    pointer-events: none;
-}
-
+/* Облака */
 .cloud {
-    position: fixed;
-    bottom: 0;
-    right: 1;
-    width: 145%;
-    height: 120%;
-    z-index: 3;
-    pointer-events: none;
+  position: fixed;
+  bottom: 0;
+  right: 1;
+  width: 145%;
+  height: 120%;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .cloud-path {
-    fill: hsl(30, 100%, 40%);
-    stroke-width: 27;
-    stroke: hsl(30, 100%, 40%);
+  fill: hsl(30, 100%, 40%);
+  stroke-width: 27;
+  stroke: hsl(30, 100%, 40%);
 }
 
-/* Медиа-запросы */
+/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-    }
-
-    .left-content, .right-content {
-        width: 100%;
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px 40px;
-    }
-
-    nav ul {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        margin-left: 0;
-    }
-
-    .contact-button {
-        margin-top: 10px;
-        align-self: flex-start;
-    }
-
-    .service {
-        width: 80px;
-        height: 80px;
-    }
+  .hero-content { flex-direction: column; }
+  .left-content, .right-content { width: 100%; }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 40px;
+  }
+  .header-right { margin-top: 10px; align-self: flex-start; }
+  .service { width: 80px; height: 80px; }
+  .video-button {
+    top: 60%;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .social-buttons {
+    bottom: 40px;
+    right: 40px;
+    gap: 10px;
+  }
+  .social-button { width: 40px; height: 40px; }
+  .social-button i { font-size: 16px; }
 }

@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://example.com/favicon.png">
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-left">
             <div class="logo">
-                <i class="fas fa-paw" style="color: yellow;"></i>
+                <div class="logo-circle">
+                    <i class="fas fa-star"></i>
+                </div>
                 <span>Miawsome</span>
             </div>
             <nav>
@@ -25,10 +28,13 @@
                 </ul>
             </nav>
         </div>
-        <button class="contact-button">Contact <i class="fas fa-user"></i></button>
-    </div>
+        <div class="header-right">
+            <button class="user-button"><i class="fas fa-user"></i></button>
+            <button class="contact-button">Contact</button>
+        </div>
+    </header>
 
-    <div class="hero-section">
+    <section class="hero-section">
         <div class="hero-content">
             <div class="left-content">
                 <h1>Paws-itively the Best Pet Care in Town</h1>
@@ -37,49 +43,74 @@
                     <button class="book-appointment">Book Appointment</button>
                     <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                    <div class="services-container">
-                        <div class="arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
-                        <div class="services-section">
-                            <div class="service">
-                                <img src="https://i.imgur.com/oZjnJwM.png" class="icon grooming-icon" alt="Grooming Icon">
-                                <span>Grooming</span>
-                            </div>
-                            <div class="service">
-                                <img src="https://cdn4.iconfinder.com/data/icons/veterinary-6/64/dog_side-vet-pet-1024.png" class="icon healthcare-icon" alt="Healthcare Icon">
-                                <span>Healthcare</span>
-                            </div>
-                            <div class="service">
-                                <img src="https://cdn3.iconfinder.com/data/icons/veterinarian-2/500/yul528_51_scissors_comb_salon_tool_white_accessory_barber-1024.png" class="icon daycare-icon" alt="Daycare Icon">
-                                <span>Daycare</span>
-                            </div>
-                            <div class="service">
-                                <img src="https://i.pinimg.com/736x/37/2f/64/372f64c786c9630d6f68e8d089d3cdfc.jpg" class="icon training-icon" alt="Training Icon">
-                                <span>Training</span>
-                            </div>
+                <div class="services-container">
+                    <div class="arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+                    <div class="services-section">
+                        <div class="service">
+                            <img src="https://i.imgur.com/oZjnJwM.png" class="icon grooming-icon" alt="Grooming Icon">
+                            <span>Grooming</span>
                         </div>
-                        <div class="arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+                        <div class="service">
+                            <img src="https://cdn4.iconfinder.com/data/icons/veterinary-6/64/dog_side-vet-pet-1024.png" class="icon healthcare-icon" alt="Healthcare Icon">
+                            <span>Healthcare</span>
+                        </div>
+                        <div class="service">
+                            <img src="https://cdn3.iconfinder.com/data/icons/veterinarian-2/500/yul528_51_scissors_comb_salon_tool_white_accessory_barber-1024.png" class="icon daycare-icon" alt="Daycare Icon">
+                            <span>Daycare</span>
+                        </div>
+                        <div class="service">
+                            <img src="https://i.pinimg.com/736x/37/2f/64/372f64c786c9630d6f68e8d089d3cdfc.jpg" class="icon training-icon" alt="Training Icon">
+                            <span>Training</span>
+                        </div>
                     </div>
-            </div>
-            <div class="right-content">
-                <div class="video-button">
-                    <div class="play-circle">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <p>Watch our video</p>
+                    <div class="arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
                 </div>
             </div>
+            <div class="right-content"></div>
         </div>
         <div class="blue-circle one"></div>
         <div class="blue-circle two"></div>
         <div class="blue-circle three"></div>
-        <div class="blue-circle four"></div> <!-- Новое облачко -->
-        <div class="blue-circle five"></div> <!-- Новое облачко -->
+        <div class="blue-circle four"></div>
+        <div class="blue-circle five"></div>
+    </section>
+
+    <div class="cat-container">
+        <div class="cat-background"></div>
+        <div class="video-button">
+            <svg width="120" height="120" viewBox="0 0 300 300" class="circular-text">
+                <defs>
+                    <path id="topArc" d="M 50,150 A 100,100 0 0,1 250,150" fill="none"/>
+                    <path id="bottomArc" d="M 250,150 A 100,100 0 0,1 50,150" fill="none"/>
+                </defs>
+                <text font-family="Poppins, sans-serif" font-weight="700" fill="black" text-anchor="middle" letter-spacing="3">
+                    <textPath href="#topArc" startOffset="50%">
+                        W A T C H  O U R  V I D E O .
+                    </textPath>
+                </text>
+                <text font-family="Poppins, sans-serif" font-weight="700" fill="black" text-anchor="middle" letter-spacing="3">
+                    <textPath href="#bottomArc" startOffset="50%">
+                        W A T C H  O U R  V I D E O .
+                    </textPath>
+                </text>
+            </svg>
+            <div class="play-circle">
+                <i class="fas fa-play"></i>
+            </div>
+        </div>
     </div>
 
-    <div class="cat-background"></div>
+    <div class="cloud-container">
+        <svg class="cloud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+            <path class="cloud-path" d="M225,598c-20-1-19-2-20-7s11-18 17-23 15-7 23-9 19-1 27,1 14,6 20,10 8,7 14,10 12,4 18,2 12-5 16-14 0-26 3-40 4-27 9-38 11-18 18-27 17-18 26-24 17-9 26-10 20,1 29,3 17,6 23,10 10,11 15,11 10-9 13-17 0-18 3-30 8-30 14-40 15-17 24-23 19-8 27-9 16-3 19,4-2,27-2,40 1,24 1,36 2,19 2,32-1,36-1,50 0,22 0,34 1,26 1,36 0,14 0,21 11,12 1,15-37-1-60-1-56-2-80-2-38,2-59,2-37,1-66,1-86,0-107-2Z"/>
+        </svg>
+        <div class="social-buttons">
+            <button class="social-button youtube"><i class="fab fa-youtube"></i></button>
+            <button class="social-button x"><i class="fab fa-twitter"></i></button>
+            <button class="social-button facebook"><i class="fab fa-facebook-f"></i></button>
+        </div>
+    </div>
 
-    <svg class="cloud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-        <path class="cloud-path" d="M225,598c-20-1-19-2-20-7s11-18 17-23 15-7 23-9 19-1 27,1 14,6 20,10 8,7 14,10 12,4 18,2 12-5 16-14 0-26 3-40 4-27 9-38 11-18 18-27 17-18 26-24 17-9 26-10 20,1 29,3 17,6 23,10 10,11 15,11 10-9 13-17 0-18 3-30 8-30 14-40 15-17 24-23 19-8 27-9 16-3 19,4-2,27-2,40 1,24 1,36 2,19 2,32-1,36-1,50 0,22 0,34 1,26 1,36 0,14 0,21 11,12 1,15-37-1-60-1-56-2-80-2-38,2-59,2-37,1-66,1-86,0-107-2Z"/>
-    </svg>
+    <script src="script.js"></script>
 </body>
 </html>

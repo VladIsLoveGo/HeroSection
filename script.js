@@ -1,37 +1,34 @@
-// JavaScript код остается без изменений
-const carouselItems = document.querySelectorAll('.service');
-const indicators = document.querySelectorAll('.carousel-indicator span');
-
+// Карусель услуг
+const servicesContainer = document.querySelector('.services-container');
+const services = document.querySelectorAll('.service');
+const arrowLeft = document.querySelector('.arrow-left');
+const arrowRight = document.querySelector('.arrow-right');
 let currentIndex = 0;
 
-function showSlide(index) {
-  carouselItems.forEach(item => item.classList.remove('active'));
-  indicators.forEach(indicator => indicator.classList.remove('active'));
-  carouselItems[index].classList.add('active');
-  indicators[index].classList.add('active');
+function updateCarousel() {
+    services.forEach((service, index) => {
+        service.style.transform = `translateX(-${currentIndex * (service.offsetWidth + 15)}px)`;
+    });
 }
 
-indicators.forEach((indicator, index) => {
-  indicator.addEventListener('click', () => {
-    currentIndex = index;
-    showSlide(currentIndex);
-  });
+arrowLeft.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
 });
 
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % carouselItems.length;
-  showSlide(currentIndex);
-}, 5000);
+arrowRight.addEventListener('click', () => {
+    if (currentIndex < services.length - 1) {
+        currentIndex++;
+        updateCarousel();
+    }
+});
 
-showSlide(currentIndex);
-
-const heroSection = document.querySelector('.hero-section');
-
-heroSection.addEventListener('mousemove', (e) => {
-    const x = e.pageX - window.innerWidth / 2;
-    const y = e.pageY - window.innerHeight / 2;
-    const maxOffset = 100;
-    const offsetX = x / window.innerWidth * maxOffset;
-    const offsetY = y / window.innerHeight * maxOffset;
-    heroSection.style.backgroundPosition = `calc(50% + ${offsetX}px) calc(50% + ${offsetY}px)`;
-}, { passive: true }); // Добавляем passive для улучшения производительности и избежания блокировки событий
+// Параллакс для фона кота
+const catBackground = document.querySelector('.cat-background');
+document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    catBackground.style.transform = `translate(${x}px, ${y}px)`;
+});
